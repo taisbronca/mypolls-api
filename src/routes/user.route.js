@@ -1,12 +1,17 @@
 import { Router } from "express";
-import userController from "../controllers/user.controller.js";
-import { validId, validUser } from "../middlewares/global.middlewares.js";
+import {
+  createService,
+  findAllService,
+  findByIdService,
+  updateService,
+} from "../services/user.service.js";
+import { validId, validUser } from "../middlewares/global.middleware.js";
 
 const router = Router();
 
-router.post("/", userController.create);
-router.get("/", userController.findAll);
-router.get("/:id", validId, validUser, userController.findById);
-router.put("/:id", validId, validUser, userController.update);
+router.post("/", createService);
+router.get("/", findAllService);
+router.get("/:id", validId, validUser, findByIdService);
+router.put("/:id", validId, validUser, updateService);
 
 export default router;

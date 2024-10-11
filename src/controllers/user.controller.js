@@ -1,6 +1,11 @@
-import userService from "../services/user.service.js";
+import {
+  createService,
+  findAllService,
+  findByIdService,
+  updateService,
+} from "../services/user.service.js";
 
-const create = async (req, res) => {
+export const create = async (req, res) => {
   try {
     const { name, email, password } = req.body;
 
@@ -8,7 +13,7 @@ const create = async (req, res) => {
       res.status(400).send({ message: "Submit all fields for registration" });
     }
 
-    const user = await userService.createService(req.body);
+    const user = await createService(req.body);
 
     if (!user) {
       return res.status(400).send({ message: "Error creating User" });
@@ -27,9 +32,9 @@ const create = async (req, res) => {
   }
 };
 
-const findAll = async (req, res) => {
+export const findAll = async (req, res) => {
   try {
-    const users = await userService.findAllService();
+    const users = await findAllService();
 
     if (users.length === 0) {
       return res.status(400).send({ message: "There are no registered users" });
@@ -41,16 +46,19 @@ const findAll = async (req, res) => {
   }
 };
 
-const findById = async (req, res) => {
+export const findById = async (req, res) => {
   try {
-    const user = req.user;
+    const user = await findByIdService(
+      req.params.id,
+      req.userId
+    );
     res.send(user);
   } catch (err) {
     res.status(500).send({ message: err.message });
   }
 };
 
-const update = async (req, res) => {
+export const update = async (req, res) => {
   try {
     const { name, email, password } = req.body;
 
@@ -60,12 +68,10 @@ const update = async (req, res) => {
 
     const { id, user } = req;
 
-    await userService.updateService(id, name, email, password);
+    await updateService(id, name, email, password);
 
     res.send({ message: "User successfully updated" });
   } catch (err) {
     res.status(500).send({ message: err.message });
   }
 };
-
-export default { create, findAll, findById, update };
