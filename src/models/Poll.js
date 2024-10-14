@@ -1,6 +1,11 @@
 import mongoose from "mongoose";
 
 const PollSchema = new mongoose.Schema({ 
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
   title: {
     type: String,
     required: true,
@@ -17,18 +22,13 @@ const PollSchema = new mongoose.Schema({
       },
     },
   ],
-  user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
-    required: true,
-  },
   createdAt: {
     type: Date,
-    default: Date.now,
+    default: Date.now(),
   },
   updatedAt: {
     type: Date,
-    default: Date.now,
+    default: Date.now(),
   },
 });
 

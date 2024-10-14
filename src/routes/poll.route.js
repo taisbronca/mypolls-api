@@ -1,21 +1,21 @@
+import pollController from "../controllers/poll.controller.js";
+import authMiddleware from "../middlewares/auth.middleware.js";
+import { validId } from "../middlewares/global.middleware.js";
+
 import { Router } from "express";
-const router = Router();
 
-import {
-  create,
-  findAll,
-  findById,
-  update,
-  remove,
-  vote,
-} from "../controllers/poll.controller.js";
-import { authMiddleware } from "../middlewares/auth.middleware.js";
+const pollRouter = Router();
 
-router.post("/", authMiddleware, create);
-router.get("/", findAll);
-router.get("/:id", findById);
-router.put("/:id", authMiddleware, update);
-router.delete("/:id", authMiddleware, remove);
-router.patch("/:id/vote", vote);
+pollRouter.get("/", pollController.findAllPollController);
 
-export default router;
+pollRouter.use(authMiddleware);
+pollRouter.post("/create", pollController.createPollController);
+
+pollRouter.use(validId);
+pollRouter.get("/byIdPoll/:id", pollController.findByIdPollController);
+pollRouter.get("/byUserId", pollController.findPollByUserIdController);
+pollRouter.put("/update/:id", pollController.updatePollController);
+pollRouter.delete("/delete/:id", pollController.removePollController);
+pollRouter.patch("/:id/vote", pollController.votePollController);
+
+export default pollRouter;

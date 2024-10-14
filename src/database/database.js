@@ -8,7 +8,9 @@ const connectDatabase = () => {
       useUnifiedTopology: true,
     })
     .then(() => console.log("MongoDB Atlas Connected"))
-    .catch((error) => console.log(error));
+    .catch((error) =>
+      console.log(`Error connecting to MongoDB Atlas: ${error}`)
+    );
 };
 
 export default connectDatabase;
