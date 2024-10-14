@@ -2,6 +2,8 @@
 
 This is the backend for the MyPolls application, a survey management tool built with Node.js and Express. It provides a REST API for managing surveys and their respective options.
 
+- documentation: http://localhost:3000/doc/
+
 #### Features
 - CRUD operations for managing surveys.
 - Each survey can have multiple response options.
@@ -11,5 +13,6 @@ This is the backend for the MyPolls application, a survey management tool built 
 #### Technologies
 - Node.js and Express for the server-side logic.
 - MongoDB for data persistence.
+- Swagger for Documentation.
 
 ###### tags: `back-end` `Node.js` `MongoDB` `Express`
