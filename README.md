@@ -1,12 +1,12 @@
 # MyPolls API
 
-This is the backend for the MyPolls application, a survey management tool built with **Node.js** and **Express**. It provides a REST API for managing surveys, their options, and user authentication, ensuring secure access to survey data.
+This is the backend for the MyPolls application, a poll management tool built with **Node.js** and **Express**. It provides a REST API for managing polls, their options, and user authentication, ensuring secure access to poll data.
 
 #### Features
-- CRUD operations for managing surveys.
-- Each survey can have multiple response options.
+- CRUD operations for managing polls.
+- Each poll can have multiple response options.
 - API follows RESTful principles for easy integration with the frontend.
-- User authentication to restrict access to surveys.
+- User authentication to restrict access to polls.
 - API documentation available via Swagger.
 
 #### Getting Started
