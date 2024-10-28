@@ -18,14 +18,7 @@ const loginService = async ({ email, password }) => {
 
   const token = generateToken(user.id);
 
-  return { 
-    token,
-    user: {
-      id: user.id,
-      name: user.name,
-      email: user.email
-    }
-  };
+  return token
 };
 
 export default { loginService, generateToken };
