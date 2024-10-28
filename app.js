@@ -7,9 +7,12 @@ import router from "./src/routes/index.js";
 const app = express();
 
 connectDatabase();
+
+const allowedOrigins = [process.env.CLIENT_URL, process.env.CLIENT_URL_PROD];
+
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: allowedOrigins,
     credentials: true,
   })
 );
