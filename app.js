@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(router);
 
 app.get('/', (req, res) => {
-  res.send('API está funcionando!'); // Para verificar se o servidor está ativo
+  res.send('API is working!');
 });
 
 export default app;
