@@ -2,6 +2,9 @@
 
 This is the backend for the MyPolls application, a poll management tool built with **Node.js** and **Express**. It provides a REST API for managing polls, their options, and user authentication, ensuring secure access to poll data.
 
+- MyPolls Deploy App: https://mypolls-app.onrender.com/
+- Mypolls Deploy Api: https://mypolls-api.onrender.com/
+
 #### Features
 - CRUD operations for managing polls.
 - Each poll can have multiple response options.
